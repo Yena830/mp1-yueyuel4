@@ -5,9 +5,253 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MP1</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+    <!-- HTML5 Header -->
+    <header class="navbar" id="navbar">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-text">Happy Moon</span>
+                <span class="brand-emoji">🌙</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#tokyo" class="nav-link">Tokyo</a></li>
+                <li><a href="#kyoto" class="nav-link">Kyoto</a></li>
+                <li><a href="#osaka" class="nav-link">Osaka</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Explore Japan with me Happy Moon 🌙</h1>
+                <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('tokyo')"><i class="fas fa-rocket"></i> Start Journey</button>
+                        <button class="btn btn-secondary" onclick="openModal('about')"><i class="fas fa-info-circle"></i> Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokyo Section -->
+        <section id="tokyo" class="content-section">
+            <div class="container">
+                <div class="section-content">
+                    <div class="text-content">
+                        <h2 class="section-title">Tokyo Adventure</h2>
+                        <p class="section-text">
+                            Tokyo's neon-lit streets welcomed me with open arms. This bustling metropolis is a paradise for anime lovers and shopping enthusiasts! From the iconic Shibuya crossing to the colorful streets of Harajuku, every corner pulses with energy and innovation. Countless shopping malls, trendy cafes, and the latest tech gadgets - Tokyo never sleeps, and neither does my excitement!
+                        </p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">🎌</div>
+                                <span>Anime Paradise & Otaku Culture</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🛍️</div>
+                                <span>Endless Shopping & Modern Trends</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🏙️</div>
+                                <span>Neon-lit Streets & Urban Energy</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('tokyo-details')"><i class="fas fa-arrow-right"></i> More Details</button>
+                    </div>
+                    <div class="image-content">
+                        <div class="image-container">
+                            <img src="/assets/tokyo.jpg" alt="Tokyo Night Skyline" class="section-image">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kyoto Section - Multi-column Layout -->
+        <section id="kyoto" class="content-section kyoto-section">
+            <div class="container">
+                <h2 class="section-title kyoto-title">Kyoto's Timeless Beauty</h2>
+                <p class="section-text kyoto-text">
+                    In Kyoto, I found Japan's soul. I visited the magnificent Kiyomizu-dera Temple and walked through the thousands of red torii gates at Fushimi Inari Shrine. Dressed in traditional kimono, I experienced the art of tea ceremony and tasted authentic matcha. This city tells stories of a thousand years through its preserved traditions.
+                </p>
+                <div class="multi-column-layout">
+                    <div class="column" onclick="openModal('kyoto-temples')">
+                        <div class="column-icon">🏯</div>
+                        <h3>Kiyomizu-dera & Fushimi Inari</h3>
+                        <p>Visited the stunning wooden temple and walked through thousands of red torii gates.</p>
+                    </div>
+                    <div class="column" onclick="openModal('kyoto-tea')">
+                        <div class="column-icon">🍵</div>
+                        <h3>Tea Ceremony</h3>
+                        <p>Experienced authentic matcha tea ceremony.</p>
+                    </div>
+                    <div class="column" onclick="openModal('kyoto-geisha')">
+                        <div class="column-icon">👘</div>
+                        <h3>Kimono Experience</h3>
+                        <p>Immersed in Kyoto's rich cultural heritage and traditional Japanese customs.</p>
+                    </div>
+                </div>
+                
+               
+            </div>
+        </section>
+
+        <!-- Osaka Section -->
+        <section id="osaka" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Osaka Adventure</h2>
+                    <p class="section-text">Known as Japan's kitchen, Osaka filled my heart (and stomach) with incredible food! I explored the bustling Shinsaibashi shopping district and had the most amazing time at Universal Studios Japan. The best okonomiyaki and yakisoba I've ever tasted - this city knows how to make you happy!</p>
+                </div>
+                <div class="carousel-container">
+                    <div class="carousel" id="osakaCarousel">
+                        <div class="carousel-item active">
+                            <img src="assets/Okonomiyaki.JPG" alt="Osaka Street Food">
+                            <div class="carousel-content">
+                                <h3>Best Okonomiyaki & Yakisoba</h3>
+                                <p>Delicious street food adventures in Shinsaibashi</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/Universal Studios Japan.jpg" alt="Universal Studios Japan">
+                            <div class="carousel-content">
+                                <h3>Universal Studios Japan</h3>
+                                <p>Amazing theme park with Harry Potter and Super Nintendo World</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/Shinsaibashi.jpg" alt="Shinsaibashi Shopping">
+                            <div class="carousel-content">
+                                <h3>Shinsaibashi Shopping</h3>
+                                <p>Endless shopping and entertainment in the heart of Osaka</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" onclick="changeSlide(-1)">‹</button>
+                        <button class="carousel-btn next" onclick="changeSlide(1)">›</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="content-section gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Memory Gallery</h2>
+                    <p class="section-text">A collection of moments capturing the essence of Japan</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openModal('gallery-1')">
+                        <img src="assets/nara.jpg" alt="Nara Deer">
+                        <div class="gallery-overlay">
+                            <h3>Nara Deer</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openModal('gallery-2')">
+                        <img src="assets/fuji.jpg" alt="Mount Fuji">
+                        <div class="gallery-overlay">
+                            <h3>Mount Fuji</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openModal('gallery-3')">
+                        <img src="assets/pokemon.jpg" alt="Pokemon Center">
+                        <div class="gallery-overlay">
+                            <h3>Pokemon Center</h3>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- HTML5 Video Section -->
+                 <div class="video-section">
+                     <h3 class="video-title">Summer Fireworks Festival</h3>
+                     <div class="video-container">
+                         <video id="travelVideo" autoplay loop muted playsinline>
+                             <source src="assets/fireworks.mp4" type="video/mp4">
+                             Your browser does not support video playback.
+                         </video>
+                         <div class="video-overlay">
+                             <div class="video-content">
+                                 <h4>Japanese Summer Fireworks Festival</h4>
+                                 <p>During Japan's summer months, countless hanabi (fireworks) festivals light up the night sky across the country. People gather together in yukata (summer kimono) to watch these spectacular displays, creating magical and romantic moments under the stars. It's one of the most beautiful traditions of Japanese summer culture!</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="section-text">Have questions about Japan or want to share your travel stories? I'd love to hear from you!</p>
+                    <div class="contact-info">
+                        <button class="btn btn-primary" onclick="sendEmail()">
+                            <i class="fas fa-envelope"></i>
+                            Send me an email
+                        </button>
+                        <p class="email-text">happymoon@example.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- HTML5 Canvas for Decorative Elements -->
+    <canvas id="decorativeCanvas" class="decorative-canvas"></canvas>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Title</h2>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <p id="modalText">Content</p>
+                <div class="modal-images" id="modalImages"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-title">Happy Moon 🌙</h3>
+                    <p class="footer-text">Made by Yueyue Lin</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yueyue Lin's Japan Travel Journal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>
