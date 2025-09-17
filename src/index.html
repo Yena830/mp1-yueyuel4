@@ -41,8 +41,8 @@
             <div class="hero-content">
                 <h1 class="hero-title">Explore Japan with me Happy Moon 🌙</h1>
                 <div class="hero-buttons">
-                        <button class="btn btn-primary" onclick="scrollToSection('tokyo')"><i class="fas fa-rocket"></i> Start Journey</button>
-                        <button class="btn btn-secondary" onclick="openModal('about')"><i class="fas fa-info-circle"></i> Learn More</button>
+                        <button class="btn btn-primary" data-target="tokyo"><i class="fas fa-rocket"></i> Start Journey</button>
+                        <button class="btn btn-secondary" data-modal="about"><i class="fas fa-info-circle"></i> Learn More</button>
                 </div>
             </div>
         </section>
@@ -70,7 +70,7 @@
                                 <span>Neon-lit Streets & Urban Energy</span>
                             </div>
                         </div>
-                        <button class="btn btn-outline" onclick="openModal('tokyo-details')"><i class="fas fa-arrow-right"></i> More Details</button>
+                        <button class="btn btn-outline" data-modal="tokyo-details"><i class="fas fa-arrow-right"></i> More Details</button>
                     </div>
                     <div class="image-content">
                         <div class="image-container">
@@ -90,17 +90,17 @@
                     In Kyoto, I found Japan's soul. I visited the magnificent Kiyomizu-dera Temple and walked through the thousands of red torii gates at Fushimi Inari Shrine. Dressed in traditional kimono, I experienced the art of tea ceremony and tasted authentic matcha. This city tells stories of a thousand years through its preserved traditions.
                 </p>
                 <div class="multi-column-layout">
-                    <div class="column" onclick="openModal('kyoto-temples')">
+                    <div class="column" data-modal="kyoto-temples">
                         <div class="column-icon">🏯</div>
                         <h3>Kiyomizu-dera & Fushimi Inari</h3>
                         <p>Visited the stunning wooden temple and walked through thousands of red torii gates.</p>
                     </div>
-                    <div class="column" onclick="openModal('kyoto-tea')">
+                    <div class="column" data-modal="kyoto-tea">
                         <div class="column-icon">🍵</div>
                         <h3>Tea Ceremony</h3>
                         <p>Experienced authentic matcha tea ceremony.</p>
                     </div>
-                    <div class="column" onclick="openModal('kyoto-geisha')">
+                    <div class="column" data-modal="kyoto-geisha">
                         <div class="column-icon">👘</div>
                         <h3>Kimono Experience</h3>
                         <p>Immersed in Kyoto's rich cultural heritage and traditional Japanese customs.</p>
@@ -143,8 +143,8 @@
                         </div>
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev" onclick="changeSlide(-1)">‹</button>
-                        <button class="carousel-btn next" onclick="changeSlide(1)">›</button>
+                        <button class="carousel-btn prev">‹</button>
+                        <button class="carousel-btn next">›</button>
                     </div>
                 </div>
             </div>
@@ -158,19 +158,19 @@
                     <p class="section-text">A collection of moments capturing the essence of Japan</p>
                 </div>
                 <div class="gallery-grid">
-                    <div class="gallery-item" onclick="openModal('gallery-1')">
+                    <div class="gallery-item" data-modal="gallery-1">
                         <img src="assets/nara.jpg" alt="Nara Deer">
                         <div class="gallery-overlay">
                             <h3>Nara Deer</h3>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal('gallery-2')">
+                    <div class="gallery-item" data-modal="gallery-2">
                         <img src="assets/fuji.jpg" alt="Mount Fuji">
                         <div class="gallery-overlay">
                             <h3>Mount Fuji</h3>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal('gallery-3')">
+                    <div class="gallery-item" data-modal="gallery-3">
                         <img src="assets/pokemon.jpg" alt="Pokemon Center">
                         <div class="gallery-overlay">
                             <h3>Pokemon Center</h3>
@@ -204,11 +204,11 @@
                     <h2 class="section-title">Let's Connect</h2>
                     <p class="section-text">Have questions about Japan or want to share your travel stories? I'd love to hear from you!</p>
                     <div class="contact-info">
-                        <button class="btn btn-primary" onclick="sendEmail()">
+                        <button class="btn btn-primary" data-action="email">
                             <i class="fas fa-envelope"></i>
                             Send me an email
                         </button>
-                        <p class="email-text">happymoon@example.com</p>
+                        
                     </div>
                 </div>
             </div>
@@ -220,11 +220,11 @@
 
     <!-- Modal -->
     <div class="modal" id="modal">
-        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-backdrop"></div>
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="modalTitle">Title</h2>
-                <button class="modal-close" onclick="closeModal()">×</button>
+                <button class="modal-close">×</button>
             </div>
             <div class="modal-body" id="modalBody">
                 <p id="modalText">Content</p>

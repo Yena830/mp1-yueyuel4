@@ -354,17 +354,34 @@ p {
 .kyoto-section {
   width: 100%;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+
+  /* The actual background */
   background-image: url('/assets/kyoto.jpg');
   background-position: center center;
   background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  position: relative;
-  z-index: 1;
-  // 优化滚动性能
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+
+  /* Optional dark overlay for contrast */
+  &::before {
+    content: "";
+    position: absolute; 
+    inset: 0;
+    background: rgba(26, 31, 36, 0.6);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Ensure inner content sits above the overlay */
+  .container { 
+    position: relative; 
+    z-index: 1; 
+  }
 }
+
+
 
 .section-content {
   display: grid;
@@ -421,18 +438,18 @@ p {
     position: relative;
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    /* Slightly lighter shadow for perf */
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
     border: 1px solid rgba(168, 181, 160, 0.1);
 
     .section-image {
       width: 100%;
       height: 400px;
       object-fit: cover;
-      @include transition(transform, 0.3s); // 减少动画时间
-      will-change: transform; // 优化GPU加速
-
-      &:hover {
-        transform: scale(1.02); // 减少缩放比例
+      @include transition(transform, 0.25s);
+      will-change: transform;
+      &:hover { 
+        transform: scale(1.02); 
       }
     }
 
@@ -463,21 +480,21 @@ p {
   }
 
   .column {
-    background-color: rgba(42, 50, 58, 0.7);
-    // backdrop-filter: blur(10px); // 这会破坏 background-attachment: fixed
+    /* Glass cards: avoid backdrop-filter if perf is an issue */
+    background-color: rgba(42, 50, 58, 0.72);
     border: 1px solid rgba(168, 181, 160, 0.2);
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
     cursor: pointer;
     @include transition(all, 0.3s);
-    will-change: transform; // 优化GPU加速
+    will-change: transform;
 
     &:hover {
-      transform: translateY(-4px); // 减少移动距离
+      transform: translateY(-4px);
       border-color: rgba(168, 181, 160, 0.5);
       background-color: rgba(42, 50, 58, 0.8);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); // 减少阴影复杂度
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
 
     .column-icon {
@@ -585,25 +602,38 @@ p {
     height: 500px;
     object-fit: cover;
   }
+}
 
-  .carousel-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: $text-color;
-    padding: 3rem 2rem 2rem;
+/* Carousel content overlay */
+.carousel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: $text-color;
+  padding: 3rem 2rem 2rem;
 
-    h3 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
 
-    p {
-      color: $text-muted;
-      font-size: 1.125rem;
-    }
+  p {
+    color: $text-muted;
+    font-size: 1.125rem;
+  }
+}
+
+/* Carousel images: avoid layout jank by fixing aspect via height or aspect-ratio */
+.carousel img {
+  height: 500px;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .carousel img { 
+    height: 340px; 
   }
 }
 
