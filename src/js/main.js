@@ -1,5 +1,3 @@
-// main.js — Virtual Japan Travel Journal (refactored, no globals, no inline handlers)
-
 /* ========= Utilities ========= */
 var $ = function (sel, root) { return (root || document).querySelector(sel); };
 var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
@@ -241,10 +239,6 @@ JapanApp.prototype.bindEvents = function () {
     }
   });
 
-  // resize hook (if you need it later)
-  window.addEventListener("resize", function () {
-    // responsive adjustments placeholder
-  });
 };
 
 JapanApp.prototype.setupVideoFallback = function () {
@@ -266,12 +260,5 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.style.display = "none";
   }
   
-  window.japanApp = new JapanApp(); // expose if you want, otherwise omit the window assignment
+  window.japanApp = new JapanApp(); 
 });
-
-// (optional) service worker registration can stay as-is
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("/sw.js").catch(function () {});
-  });
-}

@@ -81,8 +81,6 @@ body {
   
 }
 
-// Typography
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-light;
   line-height: 1.4;
@@ -374,7 +372,6 @@ p {
     z-index: 0;
   }
 
-  /* Ensure inner content sits above the overlay */
   .container { 
     position: relative; 
     z-index: 1; 
@@ -438,7 +435,6 @@ p {
     position: relative;
     border-radius: 0.5rem;
     overflow: hidden;
-    /* Slightly lighter shadow for perf */
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
     border: 1px solid rgba(168, 181, 160, 0.1);
 
@@ -480,7 +476,6 @@ p {
   }
 
   .column {
-    /* Glass cards: avoid backdrop-filter if perf is an issue */
     background-color: rgba(42, 50, 58, 0.72);
     border: 1px solid rgba(168, 181, 160, 0.2);
     border-radius: 1rem;
@@ -604,7 +599,6 @@ p {
   }
 }
 
-/* Carousel content overlay */
 .carousel-content {
   position: absolute;
   bottom: 0;
@@ -625,7 +619,6 @@ p {
   }
 }
 
-/* Carousel images: avoid layout jank by fixing aspect via height or aspect-ratio */
 .carousel img {
   height: 500px;
   object-fit: cover;
