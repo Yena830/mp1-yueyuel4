@@ -317,7 +317,7 @@ p {
       @include responsive(md) {
         font-size: 4.5rem;
       }
-    }
+   }
 
   .hero-subtitle {
     font-size: 1.25rem;
@@ -1050,6 +1050,34 @@ p {
   .kyoto-stats {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  // 视频部分手机端优化
+  .video-section {
+    .video-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-container {
+      padding: 0.5rem;
+
+      .video-overlay {
+        padding: 0.5rem;
+
+        .video-content {
+          h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+          }
+
+          p {
+            font-size: 0.8rem;
+            line-height: 1.4;
+          }
+        }
+      }
+    }
   }
 }
 
